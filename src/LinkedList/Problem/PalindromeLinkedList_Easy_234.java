@@ -34,6 +34,7 @@ class PalindromeLinkedList_Easy_234 {
         // total number of nodes is odd, the "next" is the head of thr other part
         else if (fast.next == null){
             next = next.next;
+            ;
         }
 
         while(slow != null){
