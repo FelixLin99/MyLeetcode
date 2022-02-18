@@ -1,6 +1,10 @@
 package LinkedList.Problem;
 
 import LinkedList.DataStructure.ListNode;
+import sun.awt.image.ImageWatched;
+
+import java.util.List;
+import java.util.Stack;
 
 /**
  * @author Felix
@@ -11,43 +15,49 @@ import LinkedList.DataStructure.ListNode;
  */
 public class AddTwoNumbersII_Medium_445 {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        long decimal1 = toDecimal(l1, 0);
-        long decimal2 = toDecimal(l2, 0);
-        long sum = decimal1 + decimal2;
-        ListNode output = (sum == 0)? new ListNode(0) : null;
-        while(sum != 0){
-            long digit = sum % 10;
-            sum = (sum - digit) / 10;
-            ListNode tmp = new ListNode((int)digit, output);
-            output = tmp;
+        Stack<Integer> stack1 = buildStack(l1);
+        Stack<Integer> stack2 = buildStack(l2);
+        ListNode output = null;
+        boolean surplus = false;
+
+        while(!stack1.empty() || !stack2.empty()){
+            int digit1 = (stack1.empty()) ? 0 : stack1.pop();
+            int digit2 = (stack2.empty()) ? 0 : stack2.pop();
+            int sum = (surplus)? digit1 + digit2 + 1: digit1 + digit2;
+            if (sum >= 10){
+                sum = sum % 10;
+                surplus = true;
+            }
+            else{
+                surplus = false;
+            }
+            ListNode newHead = new ListNode(sum, output);
+            output = newHead;
         }
         return output;
     }
 
-    public static long toDecimal(ListNode l, long front){
-        if(l.next == null){
-            return front + l.val;
+    public static Stack<Integer> buildStack(ListNode l){
+        Stack<Integer> stack = new Stack<>();
+        while (l != null) {
+            stack.push(l.val);
+            l = l.next;
         }
-        return toDecimal(l.next, 10*(front +l.val));
+        return stack;
+
+
     }
 
     public static void main(String[] args) {
-        // make data: l1 = [3,9,9,9,9,9,9,9,9,9]; l2 = [7]
-        ListNode l1 = new ListNode(3);
-        l1.addNode(9);
-        l1.addNode(9);
-        l1.addNode(9);
-        l1.addNode(9);
-        l1.addNode(9);
-        l1.addNode(9);
-        l1.addNode(9);
-        l1.addNode(9);
+        ListNode l1 = new ListNode(1);
+        l1.addNode(8);
         l1.addNode(9);
 
-        ListNode l2 = new ListNode(7);
+        ListNode l2 = new ListNode(2);
+        l2.addNode(2);
+        l2.addNode(3);
 
-        ListNode listNode = addTwoNumbers(l1, l2);
-        String s = listNode.toString();
-        System.out.println(s);
+        ListNode output = addTwoNumbers(l1, l2);
+        System.out.println(output.toString());
     }
 }
