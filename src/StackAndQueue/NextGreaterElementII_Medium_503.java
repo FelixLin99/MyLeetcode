@@ -1,6 +1,7 @@
 package StackAndQueue;
 
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.Stack;
 
 /**
@@ -20,6 +21,7 @@ public class NextGreaterElementII_Medium_503 {
             while(!stack.isEmpty() && nums[stack.peek()]<nums[i%n]){
                 output[stack.pop()] = nums[i%n];
             }
+
 
             if(i < n){
                 stack.push(i);
