@@ -6,7 +6,7 @@ import java.util.*;
  * @author Felix
  * @title: Shuhui Lin
  * @projectName MyLeetcode
- * @description: TODO
+ * @description:
  * @date 2022/2/2120:59
  */
 public class TwoSum_Easy_1 {
