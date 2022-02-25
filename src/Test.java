@@ -7,10 +7,8 @@
  */
 public class Test {
     public static void main(String[] args) {
-        String s= "abc";
-        System.out.println(s.indexOf('d'));
-        String out = "cbca";
-        System.out.println(out.compareTo(s));
+        int[][] arr = new int[2][3];
+        System.out.println(arr.length);
 
     }
 }
