@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * @author Felix
  * @title: Shuhui Lin
@@ -15,7 +17,9 @@ public class Test {
         System.out.println(t);
         int i = Integer.parseInt(t);
         System.out.println(i);
-        s.sub
+
+        LinkedList<String> strings = new LinkedList<>();
+
 
     }
 }
