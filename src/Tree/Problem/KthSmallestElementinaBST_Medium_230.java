@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * @author Shuhui Lin
  * @projectName MyLeetcode
- * @description: TODO
+ * @description:
  * @date 2022/3/6 15:10
  */
 public class KthSmallestElementinaBST_Medium_230 {
