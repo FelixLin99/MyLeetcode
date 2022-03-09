@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
@@ -9,17 +10,9 @@ import java.util.LinkedList;
  */
 public class Test {
     public static void main(String[] args) {
-        double sqrt = Math.sqrt(9);
-        double floor = Math.floor(sqrt);
-        System.out.println(sqrt == floor);
-        String s = "1106";
-        String t = s.substring(2,4);
-        System.out.println(t);
-        int i = Integer.parseInt(t);
-        System.out.println(i);
-
-        LinkedList<String> strings = new LinkedList<>();
-
+        int[] arrays = new int[]{1,2,3,4,5};
+        int[] ints = Arrays.copyOfRange(arrays, 0, 3);
+        System.out.println(ints[2]);
 
     }
 }
