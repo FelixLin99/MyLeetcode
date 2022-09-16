@@ -21,12 +21,12 @@ public class Greyness {
                 ithColSum[j] += Integer.parseInt(input[i].substring(j, j+1));
             }
         }
-
+// blackCnt - (n+m-1-blackcnt)
         for(int i = 0; i < rowCnt; i++) {
             for (int j = 0; j < colCnt; j++) {
                 int blackCnt = (input[i].charAt(j) == '0')? ithRowSum[i] + ithColSum[j] : ithRowSum[i] + ithColSum[j] - 1;
                 // black-white = black-(n+m-1-black) = 2*black+1+m-n =
-                res = Integer.max(res, 2*blackCnt+1+colCnt-rowCnt);
+                res = Integer.max(res, 2*blackCnt+1-colCnt-rowCnt);
             }
         }
 
